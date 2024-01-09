@@ -1,0 +1,79 @@
+﻿@page
+@model ObligatorioParteII.Pages.VehiculosPag.CrearModel
+@{
+    ViewData["Title"] = "Crear vehículo";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-dark">Crear nuevo </h2>
+    </div>
+    <div class="card-body">
+
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="textdanger"></div>
+
+            <div class="container" style="padding: 30px">
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Vehiculo.CN">Código Nacional: </label>
+                    <div class="col-sm-6">
+                        <input asp-for="Vehiculos.CN" class="form-control
+mb-2" />
+                        <span asp-validation-for="Vehiculos.CN" class="textdanger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Vehiculo.Matricula">Matrícula: </label>
+                    <div class="col-sm-6">
+                        <input type="text" asp-for="Vehiculos.Matricula" class="form-control
+                            mb-2" />
+                        <span asp-validation-for="Vehiculos.Matricula" class="textdanger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Vehiculo.Marca">Marca: </label>
+                    <div class="col-sm-6">
+                        <input asp-for="Vehiculos.Marca" class="form-control
+mb-2" />
+                        <span asp-validation-for="Vehiculos.Marca" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Vehiculo.Modelo">Modelo: </label>
+                    <div class="col-sm-6">
+                        <input asp-for="Vehiculos.Modelo" class="form-control
+mb-2" />
+                        <span asp-validation-for="Vehiculos.Modelo" class="textdanger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Vehiculo.Anio">Año: </label>
+                    <div class="col-sm-6">
+                        <input asp-for="Vehiculos.Anio" class="form-control
+mb-2" />
+                        <span asp-validation-for="Vehiculos.Anio" class="textdanger"></span>
+                    </div>
+                </div>
+               
+               
+           
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6 text-center">
+                    <a asp-page="Vehiculos" class="btn btn-outline-primary">  ⤶  </a>
+                </div>
+
+                <div class="col-sm-6">
+                    <input type="submit" value=" CREAR " class="btn btn-outline-success" />
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿@page
+@model ObligatorioParteII.Pages.VehiculosPag.MasAntiguoModel
+@{
+    <div>
+            <div class="card-header">
+                <h4>Vehículo más antiguo</h4>
+            </div>
+             @if(Model.Vehiculos != null){
+        
+            <br />
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        Código nacional
+                    </th>
+                    <th>
+                        Matrícula
+                    </th>
+                    <th>
+                        Marca
+                    </th>
+                    <th>
+                        Modelo
+                    </th>
+                    <th>
+                        Año
+                    </th>
+                </tr>
+
+
+                <tr class="table-secondary">
+                    <th>
+                        @Model.Vehiculos.CN
+                    </th>
+                    <th>
+                        @Model.Vehiculos.Matricula
+                    </th>
+                    <th>
+                        @Model.Vehiculos.Marca
+                    </th>
+                    <th>
+                        @Model.Vehiculos.Modelo
+                    </th>
+                    <th>
+                        @Model.Vehiculos.Anio
+                    </th>
+                </tr>
+
+            </table>
+
+        
+            }else{
+                <br />
+                <p>No hay Vehículos registrados.</p>
+            }
+
+             <br />
+            <a class="btn btn-outline-primary" asp-area="" asp-page="Vehiculos">  ⤶  </a>
+
+    </div>
+}
+
+

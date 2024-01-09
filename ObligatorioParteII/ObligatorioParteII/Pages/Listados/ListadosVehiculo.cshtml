@@ -1,0 +1,58 @@
+﻿@page
+@model ObligatorioParteII.Pages.Listados.ListadosVehiculoModel
+@{
+
+}
+            @if (Model.Vehiculos.Count() > 0){
+                <br />
+                 <h2 class="display-6">Datos de los vehículos</h2>
+                <br />
+                <br />
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            Código nacional
+                        </th>
+                        <th>
+                            Matrícula
+                        </th>
+                        <th>
+                            Marca
+                        </th>
+                        <th>
+                            Modelo
+                        </th>
+                        <th>
+                            Año
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.Vehiculos)
+                    {
+                        <tr class="table-secondary">
+                            <td>
+                                @Html.DisplayFor(m => item.CN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Matricula)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Marca)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Modelo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Anio)
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <br />
+    <a class="btn btn-outline-primary" asp-area="" asp-page="/Index">  ⤶  </a>
+            }else{
+                <p>No hay vehículos registrados.</p>
+                <br />
+    <a class="btn btn-outline-primary" asp-area="" asp-page="/Index">  ⤶  </a>
+            }
+        
+

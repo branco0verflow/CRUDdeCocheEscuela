@@ -1,0 +1,69 @@
+﻿@page
+@model ObligatorioParteII.Pages.Listados.ListadosChoferModel
+@{
+    ViewData["Title"] = "Listados de choferes";
+}
+
+
+<div class="card-body">
+    
+        @if (Model.Choferes.Count() > 0)
+        {
+            <br />
+            <h2 class="display-6">Datos de los choferes.</h2>
+            <br />
+            <br />
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        Cédula de identidad
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Apellido
+                    </th>
+                    <th>
+                        Edad
+                    </th>
+                    <th>
+                       Vehiculo
+                    </th>
+                </tr>
+                <!-- Hasta aquí es la parte superior de la tabla, donde se nombran las columnas-->
+                @foreach (var item in Model.Choferes)
+                {
+                    <!-- Aquí se nombran cada uno de las instancias creadas de los choferes y se muestran sus datos-->
+                    <tr class="table-secondary">
+                        <td>
+                            @Html.DisplayFor(m => item.CI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.Apellido)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.Edad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.Vehiculo)
+                        </td>
+                    </tr>
+
+                }
+            </table>
+            <br />
+        <a class="btn btn-outline-primary" asp-area="" asp-page="/Index">  ⤶  </a>
+        }
+        else
+        {
+            <p>No hay choferes registrados.</p>
+            <br />
+        <a class="btn btn-outline-primary" asp-area="" asp-page="/Index">  ⤶  </a>
+        }
+   
+</div>
+

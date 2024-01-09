@@ -1,0 +1,69 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Página principal - Listados";
+}
+
+<body>
+
+    <form id="form1" runat="server">
+        <!-- Carrusel -->
+        <div id="carouselExample" class="carousel slide" data-ride="carousel">
+
+            <!-- Establecer el contenedor del carrusel como fluido y sin márgenes -->
+            <div class="container-fluid p-0">
+
+                <div class="carousel-inner">
+                    <!-- Imagen 1 -->
+                    <div class="carousel-item active">
+                        <!-- Ajustar la clase d-block w-100 a la imagen para ocupar el ancho completo -->
+                        <img src="~/css/primera.jpg" class="d-block w-100" alt="Imagen 1" />
+                    </div>
+
+                    <!-- Imagen 2 -->
+                    <div class="carousel-item">
+                        <!-- Ajustar la clase d-block w-100 a la imagen para ocupar el ancho completo -->
+                        <img src="~/css/imgn.jpg" class="d-block w-100" alt="Imagen 2" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Script para activar el carrusel y cambiar cada 3 segundos -->
+    <script>
+        $(document).ready(function () {
+            // Inicializar el carrusel
+            $('#<%= carouselExample.ClientID %>').carousel();
+
+            // Cambiar cada 3 segundos
+            setInterval(function () {
+                $('#<%= carouselExample.ClientID %>').carousel('next');
+            }, 5000);
+        });
+    </script>
+
+    
+
+<div class="text-center">
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h3 class="display-4">Bienvenido</h3>
+            <p class="lead">Administra la información de vehículos y choferes fácilmente.</p>
+            <hr class="my-4">
+            <p>Listar:</p>
+            <!-- botones que redireccionan a las páginas que van a mostrar las listas en un dataGrid o "Repeater", investigar que nos conviene -->
+                <a class="btn btn-outline-dark" asp-area="" asp-page="/Listados/ListadosChofer">Choferes</a>
+
+                <a class="btn btn-outline-dark" asp-area="" asp-page="/Listados/ListadosVehiculo">Vehículos</a>
+
+        </div>
+    </div>
+</div>
+</body>

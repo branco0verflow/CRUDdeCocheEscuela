@@ -1,0 +1,83 @@
+﻿@page
+@model ObligatorioParteII.Pages.VehiculosPag.EditarModel
+@{
+    ViewData["Title"] = "Editar vehículo";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="text-dark">Modificar datos</h2>
+    </div>
+    <div class="card-body">
+        <form method="post">
+
+            <div asp-validation-summary="ModelOnly" class="textdanger"></div>
+            
+            <input  asp-for="Vehiculo.CN" hidden />
+
+            <div class="container" style="padding: 30px">
+              
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Vehiculos.CN">Código nacional:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Vehiculo.CN" class="form-control
+                            mb-2" readonly />
+                        <span asp-validation-for="Vehiculo.CN" class="textdanger"></span>
+                    </div>
+                </div>
+              
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Vehiculos.Matricula">Matrícula:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Vehiculo.Matricula" class="form-control
+                            mb-2" />
+                        <span asp-validation-for="Vehiculo.Matricula" class="textdanger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Vehiculos.Marca">Marca:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Vehiculo.Marca" class="form-control
+mb-2" />
+                        <span asp-validation-for="Vehiculo.Marca"
+                              class="text-danger"></span>
+                    </div>
+                </div>
+               
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Vehiculos.Modelo">Modelo:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Vehiculo.Modelo" class="form-control
+mb-2" />
+                        <span asp-validation-for="Vehiculo.Modelo" class="textdanger"></span>
+                    </div>
+                </div>
+              
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Vehiculos.Anio">Año:</label>
+                    <div class="col-sm-6">
+                        <input asp-for="Vehiculo.Anio" class="form-control
+mb-2" />
+                        <span asp-validation-for="Vehiculo.Anio" class="textdanger"></span>
+                    </div>
+                </div>
+              
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6 text-center">
+                    <a asp-page="Vehiculos" class="btn btn-outline-primary">  ⤶  </a>
+                </div>
+
+                <div class="col-sm-6">
+                    <input type="submit" value="Modificar" class="btn btn-outline-success"  />
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+

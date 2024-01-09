@@ -1,0 +1,96 @@
+﻿@page
+@model ObligatorioParteII.Pages.ChoferesPag.CrearModel
+@{
+    ViewData["Title"] = "Crear chofer";
+}
+
+<div class="card">
+
+    <div class="card-header">
+        <h2 class="text-dark">Crear nuevo </h2>
+    </div>
+
+    <div class="card-body">
+
+        <form method="post">
+
+            <div asp-validation-summary="ModelOnly" class="textdanger"></div>
+
+            <div class="container" style="padding: 30px">
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Chofer.CI">Cédula de identidad: </label>
+                    <div class="col-sm-6">
+                        <input asp-for="Chofer.CI" class="form-control 
+                            mb-2" placeholder="Ingresar cédula de identidad." required />
+                        <span asp-validation-for="Chofer.CI" class="textdanger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Choferes.Nombre">Nombre: </label>
+                    <div class="col-sm-6">
+                        <input asp-for="Chofer.Nombre" class="form-control
+                            mb-2" placeholder="Ingresar nombre." required/>
+                        <span asp-validation-for="Chofer.Nombre" class="textdanger"></span>
+                    </div>
+                </div>
+             
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Choferes.Apellido">Apellido: </label>
+                    <div class="col-sm-6">
+                        <input asp-for="Chofer.Apellido" class="form-control
+                            mb-2" placeholder="Ingresar apellido." required />
+                        <span asp-validation-for="Chofer.Apellido" class="text-danger"></span>
+                    </div>
+                </div>
+               
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Choferes.Edad">Edad: </label>
+                    <div class="col-sm-6">
+                        <input asp-for="Chofer.Edad" class="form-control
+                            mb-2" placeholder="Ingresar edad." required />
+                        <span asp-validation-for="Chofer.Edad" class="textdanger"></span>
+                    </div>
+                </div>
+               
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" aspfor="Choferes.Vehiculo">Vehículo: </label>
+                    <div class="col-sm-6">
+                        <label>
+                            Seleccione la matrícula
+                        </label>
+                        <select asp-for="Chofer.Vehiculo" class="form-control
+                            mb-2" >
+                            <option value="Sin asignar">Sin asignar</option>
+                            @if (Model.Vehiculos != null)
+                            {
+                                @foreach (var item in Model.Vehiculos)
+                                {
+                                    <option value="@item.Matricula">@item.Matricula</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="Chofer.Vehiculo" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6 text-center">
+                    <a asp-page="Choferes" class="btn btn-outline-primary">  ⤶  </a>
+                </div>
+
+                <div class="col-sm-6">
+                    <input type="submit" value=" Crear "
+                           class="btn btn-outline-success" />
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,138 @@
+﻿@page
+@model ObligatorioParteII.Pages.VehiculosPag.VehiculosModel
+@{
+    ViewData["Title"] = "Lista de vehículos";
+}
+
+<div class="card">
+
+    <div class="card-header">
+        <div class="row">
+
+            <div class="col-sm-6">
+                <h2 class="text-dark">Listado de vehículos</h2>
+            </div>
+
+            <div class="col-sm-6">
+                <a asp-page="Crear" class="btn btn-success ">Agregar</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card-body">
+
+        <form method="post" >
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+
+                    <a asp-page="MasAntiguo" class="btn btn-outline-dark">Vehículo más antiguo.</a>
+                    <a asp-page="vehiculosDisponibles" class="btn btn-outline-dark">Vehículos disponibles.</a>
+            </div>
+
+        </form>
+
+        <form method="post">
+            @if (Model.Vehiculos.Count() > 0)
+            {
+                <br />
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            Código nacional
+                        </th>
+                        <th>
+                            Matrícula
+                        </th>
+                        <th>
+                            Marca
+                        </th>
+                        <th>
+                            Modelo
+                        </th>
+                        <th>
+                            Año
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.Vehiculos)
+                    {
+                        <tr class="table-secondary">
+                            <td>
+                                @Html.DisplayFor(m => item.CN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Matricula)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Marca)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Modelo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Anio)
+                            </td>
+                            <td>
+                                <a asp-route-cn="@item.CN" asp-page="Editar" class="btn btn-warning btn-sm">Modificar</a>
+                                <button asp-page-handler="Borrar" asp-route-cn="@item.CN"
+                                        onclick="return confirm('¿Está seguro que desea borrar el registro?')" class="btn btn-danger btn-sm">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <br />
+                <p>No hay Vehículos registrados.</p>
+            }
+        </form>
+
+    </div>
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Encabezado del Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title"> ⚠ ALERTA ⚠ </h4>
+                </div>
+
+                <!-- Contenido del Modal -->
+                <div class="modal-body">
+                    <p>@Model.Notificacion.Mensaje</p>
+                </div>
+
+                <!-- Pie del Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    @{
+
+        if (Model.Notificacion.Estado)
+        {
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+
+            <script>
+
+                $('#myModal').modal('show');
+            </script>
+            Model.Notificacion.Estado = false;
+        }
+    }
+
+
+</div>

@@ -1,0 +1,54 @@
+﻿@page
+@model ObligatorioParteII.Pages.VehiculosPag.vehiculosDisponiblesModel
+@{
+
+
+    <div class="card-header">
+        <h4>Vehículos disponibles</h4>
+    </div>
+    <br />
+    
+        <table class="table table-striped border">
+            <tr class="table-secondary">
+                <th>
+                    Código nacional
+                </th>
+                <th>
+                    Matrícula
+                </th>
+                <th>
+                    Marca
+                </th>
+                <th>
+                    Modelo
+                </th>
+                <th>
+                    Año
+                </th>
+            </tr>
+            @foreach (var item in Model.Vehiculos)
+            {
+                <tr class="table-secondary">
+                    <td>
+                        @Html.DisplayFor(m => item.CN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Matricula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Marca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Modelo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Anio)
+                    </td>
+
+                </tr>
+            }
+        </table>
+
+    <a class="btn btn-outline-primary" asp-area="" asp-page="Vehiculos">  ⤶  </a>
+}
+  
